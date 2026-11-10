@@ -82,7 +82,7 @@ outside the study, from Angelina's own later cases (Unboxing_Peggy_Clutch or Ste
 |---|---|---|
 | Zoom | 46 | all |
 | Title or count card | 71 | all |
-| Picture or screen recording shown with the talk | 541 | a random sample of 100, at most 5 per film (seed FILL) |
+| Picture or screen recording shown with the talk | 548 | a random sample of 100, at most 5 per film (seed FILL) |
 
 **Labels:** each label is one of:
 - **bad:** "I would change this decision in my own edit";

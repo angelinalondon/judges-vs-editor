@@ -1,56 +1,54 @@
-# Protocol: does Tev's AI critic flag what one editor flags? A pilot
+# Protocol: do Tev's AI critics flag what one editor flags? A pilot
 
-**Status: draft, 10 November 2026.** This file is frozen with a tagged commit, `protocol-frozen`, before the critic first
-looks at a study film (planned for 11 November 2026). Nothing in sections 1–11 changes after that. Any later change is
-logged in section 12 with its date and reason.
+**Status: draft, 10 November 2026.** This file is frozen with a tagged commit, `protocol-frozen`, before a critic first
+looks at a study film (planned for 11 November 2026). Nothing in sections 1–10 changes after that. Any later change is
+logged in section 11 with its date and reason.
 
-**To settle before freezing (Angelina):**
-1. The predictions (section 8).
-
-Filled in by code at freezing (marked FILL): the commits and the seeds.
+**To settle before freezing (Angelina):** the predictions (section 8). Filled in by code at freezing (marked FILL): the
+commits and the seed.
 
 ## 1. Questions
 
 Tev is an AI video editor that turns a person's footage and photos into a short film. An LLM critic decides whether a
-film is good enough to release, or asks for one revision. One editor, Angelina, is the answer key.
+film is good enough to release, or asks for one revision. One editor, Angelina, is the answer key: she labelled single
+editing decisions in 27 of Tev's films.
 
-1. **Agreement:** of the editing decisions she would change, how many does the critic flag?
-2. **Caught:** of the flaws planted on purpose in copies of films, how many does the critic flag?
-3. **Compared:** Tev's newest critic is told only the person's words and shown only the film. Does it catch more or
-   fewer of the same flaws than the critic that reads Angelina's written requirements?
+1. **Agreement:** of the decisions she would change, how many does each critic flag, and how many of those she would
+   keep does it flag by mistake?
+2. **Compared:** Tev's newest critic is told only the person's words and shown only the film. Does it flag more or fewer
+   of the same decisions than the critic that reads her written requirements?
+3. **Stable:** looking at the same film twice, does a critic flag the same decisions?
 
 ## 2. Why it matters, and what a pilot can say
 
 This pilot illustrates the scalable-oversight question; it cannot answer it. The question is whether an AI judge can
 oversee an AI's work where "right" is a matter of taste rather than a test that passes. Most oversight studies use tasks
-with checkable answers, such as code or maths. Here the answer key is one editor's eye, on four cases of one genre.
+with checkable answers, such as code or maths. Here the answer key is one editor's eye, on four cases of one genre. The
+critics matter in practice: they decide which films Tev releases. A single score per film also hides why: Tev's earlier
+rule-based scorer gave 0.967 to the film this editor rated lowest of three on 10 November.
 
-The critic matters in practice: it decides which films Tev releases. A single score per film also hides why. Tev's
-earlier rule-based scorer gave 0.967 to the film this editor rated lowest of three on 10 November, because it could not
-see what she objected to.
+## 3. The critics, frozen
 
-## 3. The critic, frozen
-
-- **Model:** Claude Opus 5.5 at effort xhigh.
-- **What it returns:**
-  - a score from 0 to 1, where 0.85 or more releases the film;
-  - a list of changes, each with its seconds (from, to), what to change and why;
-  - a verdict on each of the editor's written requirement lines.
-- **Two critics, Angelina's choice on 10 November:**
+- **Model:** Claude Opus 5.5 at effort xhigh, for both.
+- **What a critic returns:** a score from 0 to 1, where 0.85 or more releases the film; a list of changes, each with its
+  seconds (from, to), what to change and why; critic A also gives a verdict on each requirement line.
+- **The two critics, Angelina's choice on 10 November:**
   - **A, reads the requirements:** Tev policy 2.3.7, critic prompt `critique-v8` (sha256 `e475b2986c25…`) with her
-    requirements `requirements-v2` (sha256 `2ec3fe4f6f17…`, 113 lines), which it reads and gives a verdict on.
+    requirements `requirements-v2` (sha256 `2ec3fe4f6f17…`, 113 lines, 53 to 59 shown for a film's recipe).
   - **B, a viewer only:** Tev policy 2.3.10, critic prompt `critique-v11` (bundle file sha256 `09f60874a994…`) under
-    `viewerOnly`. It is told only the person's words and shown only the film; it describes the pictures before it reads
-    a word, and it gives no requirement verdicts.
-  - Both are the same model with the same settings, and see the same frames and facts below. What differs is the prompt:
-    A reads the requirements and B does not, and the two prompts are worded differently, so the comparison is between
-    two critics Tev has built, not of the requirements alone.
-- **Runner:** Tev's backend runner `evals/critique2/calibrate.mjs`, at backend commit FILL.
+    `viewerOnly`. It is told only the person's words and shown only the film; it describes the pictures before it reads a
+    word, and it gives no requirement verdicts.
+  - The prompts differ in more than the requirements, so the comparison is between two critics Tev has built, not of
+    the requirements alone.
+- **Runner:** Tev's backend `evals/experiments/judges/critic.ts` (backend commit `05cac57`, or FILL at freezing). It makes
+  each look exactly as the Worker's `critique2` route makes it under the policy, with the bundles read from the files the
+  Worker's store holds. Only the primary model's answers count: no fallback, one retry of the primary.
 
-**What it gets on the Mac:**
-- 24 frames, 540 × 960, with their times; the captions and titles are burned in as rendered;
+**What a critic gets, on the Mac:**
+- the film as Angelina rated it (its exported mp4);
+- 24 frames at even steps, 540 × 960, with their times; the captions and titles are burned in as rendered;
 - facts measured from the film: its length, shape and frame rate, its cuts, its loudness every half second, and its
-  titles with their times (as the phone writes them);
+  titles with their times and places, from its project;
 - the person's first message;
 - for critic A only, the requirement lines, as their ids and text.
 
@@ -58,198 +56,130 @@ It gets no Tev reply, no designer intent and no transcript, so it knows what is 
 frames. On the phone it would see other frames (the start, middle and end of each shot). These differences could move
 results either way, so results speak for this setup only, not for Tev's release gate.
 
-**Runner changes, committed before freezing:**
-- a `--policy` option (today it reads 2.0's critic);
-- the titles in the facts;
-- one log line per call with its request id, the model that answered, and the prompt's sha256;
-- no result cache.
-
-Only the primary model's answers count. A look answered by the fallback model is redone once, or else reported as
-failed. The calls run on Angelina's own Anthropic account.
-
 ## 4. Films, decisions and labels
 
-**Films:** the 27 films Angelina rated, from four fashion cases (A–D):
-- 21 rated on 3 November;
-- 3 rated on 4 November;
-- 3 rated on 10 November.
-
-They were made by Tev's earlier pipeline, versions v64 to v94, between 25 October and 4 November 2026. A fifth case's six
-films, rated by their owner rather than Angelina, are not in the study. The dry run and the pilot use two films
-outside the study, from Angelina's own later cases (Unboxing_Peggy_Clutch or Stella_Boots_Lookbook).
+**Films:** the 27 films Angelina rated, from four fashion cases (A–D): 21 rated on 3 November, 3 on 4 November, 3 on
+10 November. They were made by Tev's earlier pipeline, versions v64 to v94, between 25 October and 4 November 2026. A
+fifth case's six films, rated by their owner rather than Angelina, are not in the study.
 
 | Kind of decision | In the 27 films | Labelled |
 |---|---|---|
-| Zoom | 46 | all |
-| Title or count card | 71 | all |
-| Picture or screen recording shown with the talk | 548 | not in this round: whether a picture's place matters depends on the moment, so one good or bad label per picture misses it (Angelina, 10 November). Left for later |
+| Zoom | 46 | all: 14 good, 32 bad |
+| Title or count card | 71 | all: 11 good, 60 bad |
+| Picture or screen recording shown with the talk | 548 | not in this round: whether a picture's place matters depends on the moment, so one good or bad label per picture misses it |
 
 **Labels:** each label is one of:
 - **bad:** "I would change this decision in my own edit", even a little;
 - **good:** "I would keep it";
-- **unsure:** "I can't tell"; left out of every share. A decision that leans bad is labelled bad (Angelina, 10 November: her first two unsure zooms and three unsure titles were changed to bad, with their notes, before any judge ran).
+- **unsure:** "I can't tell"; left out of every share.
 
-Each label has a few words on why. The label list is `labels.csv`, built by Tev's `make_label_list.py`.
+Each label has a few words on why. The labels are `labels.csv`, built by Tev's `make_label_list.py`, committed before any
+study look (section 11). Angelina labelled before seeing any critic's answer on these films.
 
-**Blind:** Angelina labels before seeing any critic's answer on the film. The labels were done before she saw any:
-zooms and titles were labelled on 10 November and committed at 20:06 and 20:40 UTC (section 12); she saw film-level
-scores of both critics on six study films at about 20:35 UTC, after labelling them. From here, blindness matters only
-for her own judgments still to come: the flaw check (she is not told which clips are planted) and the re-labelling of
-the reliability decisions (she does not see her first labels or any critic's notes on them first).
+**Reliability:** 30 decisions, 15 per kind, drawn with seed FILL, are labelled again by Angelina without her first labels,
+at least three days after the first. Her agreement with herself is the human ceiling beside the critics.
 
-**Reliability:** 30 decisions, 15 per kind, drawn by seed, are re-labelled by Angelina without her first labels, at
-least three days after the first. Her agreement with herself is reported as the human ceiling beside the critic.
-
-**Contamination:** where a critic has, in effect, been told the answer, those films are left out of its primary
-results and reported separately.
+**Contamination:** where a critic has, in effect, been told the answer, those films are left out of its primary results
+and reported separately.
 - **Critic A:** its requirement G-ZOOMS-1, in the text it sees, names six of the 27 films and gives Angelina's verdict on
   their zooms. Those six films hold 28 of the 46 zooms, and they are left out of A's zoom results. Requirement
-  G-PICTURES-6 also describes one film's count slip (film 03-camellia of the 10 November round) without naming it, so
-  that film's titles and cards are left out of A's results.
+  G-PICTURES-6 describes one film's count slip (03-camellia of the 10 November round) without naming it, so that film's
+  titles are left out of A's results.
 - **Critic B:** while it was built, the team checked it against Angelina's film ratings of six of the 27 films:
   01-anemone, 02-begonia, 19-papaya, 05-coconut, 20-peach and 04-cherry (workspace plans/2026-11-10-critique-check/).
   Those six films are left out of B's results.
-- **Q3**, which compares A and B on the same flaws, counts only flaws in films left out of neither.
+- **Compared** counts only decisions in films left out of neither.
 
-## 5. Planted flaws
+## 5. Looks
 
-**Null copies:** every film that gets flaws is first rendered unchanged, by the same path the flawed copies take: Tev's
-edit engine on the Mac (`tev-apply`), then the app's exporter on an iOS simulator. That gives the null copy.
-- The critic's look at each film is at its null copy.
-- Code checks that each flawed project differs from its null project only in the recipe's fields.
-
-**Recipes:** each flaw changes one decision that Angelina labelled good. The recipe code is frozen with this file. Every
-recipe breaks a requirement line the critic reads, so it is told what to look for. The question is whether it notices.
-
-| Kind | Recipe 1 | Recipe 2 | Lines it breaks |
-|---|---|---|---|
-| **Zoom** | **Z1, off its word:** the zoom starts exactly 1.5 s later, same length, while its picture is still on screen. If that does not fit, 1.5 s earlier; otherwise not eligible | **Z2, aimed away:** the aim's height y becomes 1 − y. Eligible when y is at least 0.2 from the middle | G-ZOOMS-1, TH-AVOID-10 |
-| **Title or card** | **T1, over the face:** the text's centre moves onto the face Apple's Vision finds in the null copy's frame at the text's start. Eligible when exactly one face is found | **T2, one word per line:** a line break after every word. Eligible for texts of three or more words; for a count card, the words after the count | T1: G-WORDS-4, TH-AVOID-9. T2: G-WORDS-3 |
-
-**Draw:**
-- Each recipe has its own pool of eligible decisions.
-- About 5 flaws per recipe, so about 10 per kind and 20 in all. Only decisions labelled good can carry a flaw: 14 zooms and 11 titles, so the eligible pools may give fewer.
-- At most two flaws per film, per kind.
-- Every seed is derived from the frozen commit's hash.
-- A short pool means fewer flaws, never a looser rule.
-
-**Manipulation check (does each planted flaw really look wrong to Angelina?):** before the critic sees any flaw,
-Angelina labels the planted decisions themselves, exactly as in section 4: the zoom or title, good, bad or
-unsure.
-- Each one is shown as a 4-second excerpt of its film around that decision, so she judges the decision, not the clip.
-- To keep the check blind, the flawed decisions are mixed one to one with the same decisions in their null copies,
-  which are unchanged, in random order. She cannot tell which are planted.
-- A planted flaw she labels good or unsure is dropped and reported: it is not a flaw to her, so a critic that misses it
-  has not missed anything.
+Each critic looks at each of the 27 films twice, the second look a separate call with the same request: 108 looks in
+all. Two films outside the study, from Angelina's own later cases (Unboxing_Peggy_Clutch or Stella_Boots_Lookbook), are
+looked at first, once by each critic, as a dry run and a pilot: the price of a look, and the runner's logs.
 
 ## 6. Procedure
 
-1. **Dry run and pilot (11 November, morning):** two films outside the study (section 4). This checks the price
-   of a look, both frame placements and the runner's logs.
-2. **Labels (10–11 November):** every kind is labelled and committed before the critic looks at a study film.
-3. **Flaws, one kind at a time (zoom, then title):** plant the flaws, render them, then run the
-   manipulation check.
-4. **Critic A:**
-   - one look at each null copy and each flawed copy;
-   - ten null copies, drawn by seed from films with flaws, get a second look.
-5. **Critic B:** one look at each null copy and each flawed copy, the same films and flaws as A, so the comparison is
-   paired.
-6. **Late rule:** if critic A has not finished by Friday 13 November, 23:59 UK time, critic B runs on zoom flaws only.
+1. **Labels (10 November):** done and committed.
+2. **Pilot (11 November):** two films outside the study, both critics.
+3. **Freeze:** predictions written, this file tagged `protocol-frozen`.
+4. **Looks:** critic A and critic B, two looks each at every study film.
+5. **Reliability:** Angelina labels the 30 drawn decisions again, on or after 13 November.
+6. **Analysis:** the measures below, in code.
 
 ## 7. Measures
 
 **Flagged:** decided in code, never by hand.
 - **A change flags a decision** when both are true:
-  - its seconds overlap the decision's time, widened by 0.5 s on each side; for a flawed decision, that is its time in
-    the flawed copy;
+  - its seconds overlap the decision's time, widened by 0.5 s on each side;
   - its words name the decision's kind: "zoom" for a zoom; "title", "text", "card" or "heading" for a title or card.
 - **One decision per change:** each change goes to at most one decision, the overlapping decision of that kind nearest
   in time.
-- **Requirement verdicts:** a failed verdict flags a decision only when what it saw names a time inside that window.
-- **Unsure:** two or more decisions tie for a change. They count as not flagged in the primary result and as flagged in
-  a sensitivity check.
-- **Caught:** flagged in the flawed copy and not flagged in the null copy.
+- **Requirement verdicts (critic A):** a failed verdict flags a decision only when what it saw names a time inside that
+  window.
+- **Unsure:** two or more decisions tie for a change. They count as not flagged in the primary result and as flagged in a
+  sensitivity check.
+- **A decision is flagged by a critic** when its first look flags it. The second look is for Stable.
 
 **Primary results, one per question:**
-- **Q1, Agreement:** critic A's share of decisions labelled bad that it flagged, pooled over kinds. The share of
-  decisions labelled good that it flagged is given beside it.
-- **Q2, Caught:** critic A's share of the planted flaws it caught, pooled over kinds.
-- **Q3, Compared:** critic B's catches minus critic A's catches, on the same flaws, pooled over kinds, counted on the
-  flaws outside both critics' left-out films (section 4).
+- **Q1, Agreement:** for each critic, the share of decisions labelled bad that it flagged, pooled over zooms and titles;
+  the share of decisions labelled good that it flagged is given beside it.
+- **Q2, Compared:** critic B's share of bad decisions flagged minus critic A's, on the same decisions, pooled.
+- **Q3, Stable:** for each critic, the share of decisions whose flag is the same in its two looks.
 
-Each primary result has a 95% interval from 10,000 bootstrap resamples of films (seed FILL), with exact
-(Clopper–Pearson) intervals beside it for reference.
+Each primary result has a 95% interval from 10,000 bootstrap resamples of films (seed FILL), with exact (Clopper–Pearson)
+intervals beside it for reference.
 
 **Exploratory, everything else:**
-- **Chance:** the share caught if the critic's flags fell at random, at its own flag rate.
-- **Score drop:** the flawed copy's score minus the null copy's, beside the differences between two looks at the same
-  film.
-- **Seen:** at least one of the critic's frames differs between the null and the flawed copy, by a mean absolute
-  difference of more than 2 of 255. Caught is given separately for seen and unseen flaws, for A and for B.
-- **Stable:** across the repeated looks, the score difference, whether the release decision is the same, and whether
-  the flags are the same.
+- **By kind and by film.**
+- **Seen:** whether any of a critic's frames falls inside the decision's time; the shares flagged for seen and unseen
+  decisions.
+- **Film scores:** each critic's score against Angelina's 1–5 rating of the film (rank correlation), and its release
+  decision against her rating; the score and release difference between the two looks.
+- **Chance:** the share flagged if a critic's flags fell at random, at its own flag rate.
 - **Human ceiling:** Angelina's agreement with herself.
-- **Breakdowns:** by kind, recipe and film, and the number of changes per look.
+- **Changes per look,** and how many of them name a zoom or a title at all.
 
 **A prediction is right** when the observed share falls on the side of its number that it says.
 
-## 8. Predictions (Angelina's, written before the critic's first look at a study film)
+## 8. Predictions (Angelina's, written before the freeze)
 
-TO WRITE. One line each, with a number, for example: "the critic flags fewer than half of the zooms I labelled bad".
+TO WRITE. One line each, with a number, for example: "critic A flags fewer than half of the zooms I labelled bad".
 
-1. Q1, Agreement:
-2. Q2, Caught, zoom:
-3. Q2, Caught, title:
-4. Q3, Compared: critic B's catches minus critic A's:
-5. Seen: the share of zoom flaws that fall between critic A's frames:
+1. Q1, Agreement, critic A:
+2. Q1, Agreement, critic B:
+3. Q2, Compared:
+4. Q3, Stable:
+5. Film scores: does either critic order the films as I rated them?
 
 ## 9. Reporting
 
 - **Numbers:** counts and intervals, also given by kind and by film. Decisions within one film are not independent.
-- **One chart:** for each kind, the share of planted flaws caught by critic A and by critic B, on the same flaws, with
-  intervals.
-- **Everything run is reported:** failed looks, dropped flaws, flaws not drawn for lack of a pool, and every change to
-  this file.
+- **One chart:** for each kind, the share of bad decisions each critic flagged and the share of good ones it flagged by
+  mistake, with intervals.
+- **Everything run is reported:** failed looks, the films left out and why, and every change to this file.
 
-## 10. Budget
+## 10. Budget and what is public
 
-- **Total:** $40 for every model call of the study, from 9 to 17 November, paid from Angelina's own Anthropic account.
-  Tev's budget window `JUDGE` keeps the count, and the runner refuses a call the window cannot pay for.
-- **Looks:**
-  - pilot: about 4;
-  - critic A: 27 null copies, 20 flawed copies and 10 repeats, so about 57;
-  - critic B: 27 null copies and 20 flawed copies, so about 47;
-  - in all, about 108.
-- **Price rule:** if the pilot shows a look costs $0.33 or less, everything runs. If it costs more, critic A runs in
-  full, and critic B spends what is left in this order: zoom, then title, each kind with its null copies.
+- **Budget:** $40 for every model call of the study, from 9 to 17 November, paid from Angelina's own Anthropic account and
+  counted by Tev's budget window `JUDGE`; the runner refuses a call the window cannot pay for. The dry run estimates
+  $0.23 a look for critic A and $0.21 for B: about $24 for the 108 looks and $1 for the pilot. If the pilot shows a look
+  costs more than $0.35, the second looks are dropped and Stable is reported on what remains.
+- **Public (this repository):** this protocol, the analysis code, the anonymised results tables (decision id, kind, time,
+  label, each critic's flag and score; cases as A–D), the chart and the write-up.
+- **Private, in Tev:** the films, the footage and the pictures, the prompts and the requirements text, Tev's code, and the
+  critics' raw answers.
 
-## 11. What is public
-
-**Public (this repository):**
-- this protocol;
-- the analysis code;
-- the results tables, anonymised: decision id, kind, time, label, the critic's flag and score, cases as A–D;
-- the chart;
-- the write-up.
-
-**Private, in Tev:**
-- the films, the footage and the pictures;
-- the prompts and the requirements text;
-- Tev's code;
-- the critic's raw answers.
-
-## 12. Record and changes after freezing
+## 11. Record and changes after freezing
 
 | Date | What | Why |
 |---|---|---|
 | 10 Nov, before freezing | Pictures left out of this round | Angelina: a picture's place matters only at some moments, so one good or bad label per picture misses it |
 | 10 Nov, before freezing | Five unsure labels (two zooms, three titles) changed to bad, notes kept | Angelina: they leaned negative; bad now means "I would change it, even a little" |
-| 10 Nov, 20:40 UTC | Labels complete: 46 zooms (14 good, 32 bad), 71 titles (11 good, 60 bad); workspace commit `47bd4a4`, `labels.csv` sha256 `befb7de3c8d7e3ea…` | The answer key, before any study run |
+| 10 Nov, 20:40 UTC | Labels complete: 46 zooms (14 good, 32 bad), 71 titles (11 good, 60 bad); workspace commit `47bd4a4`, `labels.csv` sha256 `befb7de3c8d7e3ea…` | The answer key, before any study look |
 | 10 Nov, about 20:35 UTC | Angelina saw both critics' film-level scores on six study films (no notes), after labelling them | Shown by the session building the critics; those six films are already left out of B's results |
+| 10 Nov, before freezing | Planted flaws dropped | Tev's export test is not on its main branch, and zooms added with ffmpeg also enlarge the titles, captions and speaker that a real Tev zoom leaves alone, so the flaw would not be Tev's. Kept for later, with an export test |
 
-## 13. Who did what
+## 12. Who did what
 
-Angelina Mkrtchyan designed the study and owns it. She labels the decisions, checks the flaws, writes the predictions,
-and writes the analysis and the first draft of the write-up. Claude (Anthropic) helped with the design, the code and the
-editing. The critic is also a Claude model, so the same model family helped design the flaws and the rules that score
-it.
+Angelina Mkrtchyan designed the study and owns it. She labelled the decisions, writes the predictions, and writes the
+analysis and the first draft of the write-up. Claude (Anthropic) helped with the design, the code and the editing. The
+critics are Claude models too, so the same model family helped design the rules that score them.

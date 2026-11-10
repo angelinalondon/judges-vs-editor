@@ -96,7 +96,7 @@ on these films. That is stated, not hidden.
 **Contamination:** the critic's requirement G-ZOOMS-1, in the text it sees, names six of the 27 films and gives
 Angelina's verdict on their zooms. Those six films hold 28 of the 46 zooms.
 - The critic's zoom results are reported both with and without those films. The primary result excludes them.
-- Under 2.3.7, requirement G-PICTURES-6 also describes one film's count slip (03, case C) without naming it. If 2.3.7 is
+- Under 2.3.7, requirement G-PICTURES-6 also describes one film's count slip (film 03-camellia of the 10 November round) without naming it. If 2.3.7 is
   chosen, that film's titles and cards are left out of the critic's primary results in the same way.
 
 ## 5. Planted flaws

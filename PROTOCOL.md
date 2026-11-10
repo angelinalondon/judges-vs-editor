@@ -91,8 +91,11 @@ outside the study, from Angelina's own later cases (Unboxing_Peggy_Clutch or Ste
 
 Each label has a few words on why. The label list is `labels.csv`, built by Tev's `make_label_list.py`.
 
-**Blind:** Angelina sees none of the critic's answers on study films until every label is committed. The commit and
-the labels' sha256 are recorded in section 12.
+**Blind:** Angelina labels before seeing any critic's answer on the film. The labels were done before she saw any:
+zooms and titles were labelled on 10 November and committed at 20:06 and 20:40 UTC (section 12); she saw film-level
+scores of both critics on six study films at about 20:35 UTC, after labelling them. From here, blindness matters only
+for her own judgments still to come: the flaw check (she is not told which clips are planted) and the re-labelling of
+the reliability decisions (she does not see her first labels or any critic's notes on them first).
 
 **Reliability:** 30 decisions, 15 per kind, drawn by seed, are re-labelled by Angelina without her first labels, at
 least three days after the first. Her agreement with herself is reported as the human ceiling beside the critic.
@@ -239,6 +242,10 @@ TO WRITE. One line each, with a number, for example: "the critic flags fewer tha
 
 | Date | What | Why |
 |---|---|---|
+| 10 Nov, before freezing | Pictures left out of this round | Angelina: a picture's place matters only at some moments, so one good or bad label per picture misses it |
+| 10 Nov, before freezing | Five unsure labels (two zooms, three titles) changed to bad, notes kept | Angelina: they leaned negative; bad now means "I would change it, even a little" |
+| 10 Nov, 20:40 UTC | Labels complete: 46 zooms (14 good, 32 bad), 71 titles (11 good, 60 bad); workspace commit `47bd4a4`, `labels.csv` sha256 `befb7de3c8d7e3ea…` | The answer key, before any study run |
+| 10 Nov, about 20:35 UTC | Angelina saw both critics' film-level scores on six study films (no notes), after labelling them | Shown by the session building the critics; those six films are already left out of B's results |
 
 ## 13. Who did what
 

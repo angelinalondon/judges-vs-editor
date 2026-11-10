@@ -16,8 +16,8 @@ film is good enough to release, or asks for one revision. One editor, Angelina, 
 
 1. **Agreement:** of the editing decisions she would change, how many does the critic flag?
 2. **Caught:** of the flaws planted on purpose in copies of films, how many does the critic flag?
-3. **Fixed:** the critic sees a film through 24 frames at even steps. If the same 24 frames are placed at the moments
-   decisions start instead, a change set out in advance, does it catch more of the same flaws?
+3. **Compared:** Tev's newest critic is told only the person's words and shown only the film. Does it catch more or
+   fewer of the same flaws than the critic that reads Angelina's written requirements?
 
 ## 2. Why it matters, and what a pilot can say
 
@@ -36,8 +36,15 @@ see what she objected to.
   - a score from 0 to 1, where 0.85 or more releases the film;
   - a list of changes, each with its seconds (from, to), what to change and why;
   - a verdict on each of the editor's written requirement lines.
-- **Version:** Tev policy **2.3.7**, Angelina's choice on 10 November: critic prompt `critique-v8` (sha256 `e475b2986c25…`)
-  with her requirements `requirements-v2` (sha256 `2ec3fe4f6f17…`, 113 lines).
+- **Two critics, Angelina's choice on 10 November:**
+  - **A, reads the requirements:** Tev policy 2.3.7, critic prompt `critique-v8` (sha256 `e475b2986c25…`) with her
+    requirements `requirements-v2` (sha256 `2ec3fe4f6f17…`, 113 lines), which it reads and gives a verdict on.
+  - **B, a viewer only:** Tev policy 2.3.10, critic prompt `critique-v11` (bundle file sha256 `09f60874a994…`) under
+    `viewerOnly`. It is told only the person's words and shown only the film; it describes the pictures before it reads
+    a word, and it gives no requirement verdicts.
+  - Both are the same model with the same settings, and see the same frames and facts below. What differs is the prompt:
+    A reads the requirements and B does not, and the two prompts are worded differently, so the comparison is between
+    two critics Tev has built, not of the requirements alone.
 - **Runner:** Tev's backend runner `evals/critique2/calibrate.mjs`, at backend commit FILL.
 
 **What it gets on the Mac:**
@@ -45,21 +52,15 @@ see what she objected to.
 - facts measured from the film: its length, shape and frame rate, its cuts, its loudness every half second, and its
   titles with their times (as the phone writes them);
 - the person's first message;
-- the requirement lines, which the critic sees as their ids and text only.
+- for critic A only, the requirement lines, as their ids and text.
 
 It gets no Tev reply, no designer intent and no transcript, so it knows what is said only through captions in its
 frames. On the phone it would see other frames (the start, middle and end of each shot). These differences could move
 results either way, so results speak for this setup only, not for Tev's release gate.
 
-**Two placements of the 24 frames:**
-- **A, as today:** at even steps through the film.
-- **B, at decisions:** one frame at the start of each zoom and title, in time order. If a film has more than 24
-  such starts, every k-th start is used. If it has fewer, the rest go at even steps. Nothing else differs from A.
-
 **Runner changes, committed before freezing:**
 - a `--policy` option (today it reads 2.0's critic);
 - the titles in the facts;
-- frame placement B;
 - one log line per call with its request id, the model that answered, and the prompt's sha256;
 - no result cache.
 
@@ -96,11 +97,16 @@ the labels' sha256 are recorded in section 12.
 **Reliability:** 30 decisions, 15 per kind, drawn by seed, are re-labelled by Angelina without her first labels, at
 least three days after the first. Her agreement with herself is reported as the human ceiling beside the critic.
 
-**Contamination:** the critic's requirement G-ZOOMS-1, in the text it sees, names six of the 27 films and gives
-Angelina's verdict on their zooms. Those six films hold 28 of the 46 zooms.
-- Zoom agreement is reported both with and without those films. The primary result excludes them.
-- Requirement G-PICTURES-6 also describes one film's count slip (film 03-camellia of the 10 November round) without
-  naming it. That film's titles and cards are left out of the primary results in the same way.
+**Contamination:** where a critic has, in effect, been told the answer, those films are left out of its primary
+results and reported separately.
+- **Critic A:** its requirement G-ZOOMS-1, in the text it sees, names six of the 27 films and gives Angelina's verdict on
+  their zooms. Those six films hold 28 of the 46 zooms, and they are left out of A's zoom results. Requirement
+  G-PICTURES-6 also describes one film's count slip (film 03-camellia of the 10 November round) without naming it, so
+  that film's titles and cards are left out of A's results.
+- **Critic B:** while it was built, the team checked it against Angelina's film ratings of six of the 27 films:
+  01-anemone, 02-begonia, 19-papaya, 05-coconut, 20-peach and 04-cherry (workspace plans/2026-11-10-critique-check/).
+  Those six films are left out of B's results.
+- **Q3**, which compares A and B on the same flaws, counts only flaws in films left out of neither.
 
 ## 5. Planted flaws
 
@@ -165,7 +171,8 @@ unsure.
 - **Q1, Agreement:** critic A's share of decisions labelled bad that it flagged, pooled over kinds. The share of
   decisions labelled good that it flagged is given beside it.
 - **Q2, Caught:** critic A's share of the planted flaws it caught, pooled over kinds.
-- **Q3, Fixed:** critic B's catches minus critic A's catches, on the same flaws, pooled over kinds.
+- **Q3, Compared:** critic B's catches minus critic A's catches, on the same flaws, pooled over kinds, counted on the
+  flaws outside both critics' left-out films (section 4).
 
 Each primary result has a 95% interval from 10,000 bootstrap resamples of films (seed FILL), with exact
 (Clopper–Pearson) intervals beside it for reference.
@@ -190,7 +197,7 @@ TO WRITE. One line each, with a number, for example: "the critic flags fewer tha
 1. Q1, Agreement:
 2. Q2, Caught, zoom:
 3. Q2, Caught, title:
-4. Q3, Fixed: what frames at decisions do to Caught:
+4. Q3, Compared: critic B's catches minus critic A's:
 5. Seen: the share of zoom flaws that fall between critic A's frames:
 
 ## 9. Reporting

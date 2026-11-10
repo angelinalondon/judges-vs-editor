@@ -1,0 +1,16 @@
+# Nothing private crosses into this repository: films, footage, pictures, prompts and Tev's raw judge outputs stay in Tev.
+*.mp4
+*.mov
+*.MP4
+*.MOV
+*.jpg
+*.jpeg
+*.JPG
+*.heic
+*.png
+!figures/*.png
+private/
+raw/
+.DS_Store
+__pycache__/
+.venv/

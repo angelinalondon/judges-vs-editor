@@ -132,9 +132,12 @@ it. Caught is reported separately for recipes a judge targets and recipes it doe
 | T1, T2 | FILL | FILL |
 | P1, P2 | FILL | FILL |
 
-**Manipulation check:** before any judge sees them, every flawed decision is shown to Angelina as a 4-second clip. The
-clips are mixed one to one with the same decision in null copies, in random order. She labels each clip good, bad or
-unsure. A flaw she labels good or unsure is dropped and reported.
+**Manipulation check (does each planted flaw really look wrong to Angelina?):** before any judge sees the flaws,
+Angelina labels the planted decisions themselves, exactly as in section 4: the zoom, title or picture, good, bad or
+unsure. Each one is shown as a 4-second excerpt of its film around that decision, so she judges the decision, not the
+clip. To keep the check blind, the flawed decisions are mixed one to one with the same decisions in their null copies,
+which are unchanged, in random order, so she cannot tell which are planted. A planted flaw she labels good or unsure is
+dropped and reported: it is not a flaw to her, so a judge that misses it has not missed anything.
 
 ## 6. Procedure
 

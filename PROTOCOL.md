@@ -85,9 +85,9 @@ outside the study, from Angelina's own later cases (Unboxing_Peggy_Clutch or Ste
 | Picture or screen recording shown with the talk | 548 | a random sample of 100, at most 5 per film (seed 20261110, fixed in `make_label_list.py`) |
 
 **Labels:** each label is one of:
-- **bad:** "I would change this decision in my own edit";
+- **bad:** "I would change this decision in my own edit", even a little;
 - **good:** "I would keep it";
-- **unsure:** left out of every share.
+- **unsure:** "I can't tell"; left out of every share. A decision that leans bad is labelled bad (Angelina, 10 November: her first two unsure zooms and three unsure titles were changed to bad, with their notes, before any judge ran).
 
 Each label has a few words on why. The label list is `labels.csv`, built by Tev's `make_label_list.py`.
 

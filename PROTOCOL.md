@@ -5,9 +5,8 @@ looks at a study film (planned for 11 November 2026). Nothing in sections 1–11
 logged in section 12 with its date and reason.
 
 **To settle before freezing (Angelina):**
-1. The critic's version: 2.3.6 (recommended) or 2.3.7 (section 3).
-2. The picture sample: 100 (section 4).
-3. The predictions (section 8).
+1. The picture sample: 100 (section 4).
+2. The predictions (section 8).
 
 Filled in by code at freezing (marked FILL): the commits and the seeds.
 
@@ -38,8 +37,8 @@ see what she objected to.
   - a score from 0 to 1, where 0.85 or more releases the film;
   - a list of changes, each with its seconds (from, to), what to change and why;
   - a verdict on each of the editor's written requirement lines.
-- **Version:** Tev policy **2.3.6** (recommended): critic prompt `critique-v8` (sha256 `e475b2986c25…`) with requirements
-  `requirements-v1` (sha256 `919dd39f8c1d…`). Or **2.3.7**: the same critic prompt with `requirements-v2`.
+- **Version:** Tev policy **2.3.7**, Angelina's choice on 10 November: critic prompt `critique-v8` (sha256 `e475b2986c25…`)
+  with her requirements `requirements-v2` (sha256 `2ec3fe4f6f17…`, 113 lines).
 - **Runner:** Tev's backend runner `evals/critique2/calibrate.mjs`, at backend commit FILL.
 
 **What it gets on the Mac:**
@@ -76,8 +75,8 @@ failed. The calls run on Angelina's own Anthropic account.
 - 3 rated on 10 November.
 
 They were made by Tev's earlier pipeline, versions v64 to v94, between 25 October and 4 November 2026. A fifth case's six
-films, rated by their owner rather than Angelina, are not in the study. Two of them are used for the dry run and the
-pilot.
+films, rated by their owner rather than Angelina, are not in the study. The dry run and the pilot use two films
+outside the study, from Angelina's own later cases (Unboxing_Peggy_Clutch or Stella_Boots_Lookbook).
 
 | Kind of decision | In the 27 films | Labelled |
 |---|---|---|
@@ -101,9 +100,8 @@ least three days after the first. Her agreement with herself is reported as the 
 **Contamination:** the critic's requirement G-ZOOMS-1, in the text it sees, names six of the 27 films and gives
 Angelina's verdict on their zooms. Those six films hold 28 of the 46 zooms.
 - Zoom agreement is reported both with and without those films. The primary result excludes them.
-- Under 2.3.7, requirement G-PICTURES-6 also describes one film's count slip (film 03-camellia of the 10 November round)
-  without naming it. If 2.3.7 is chosen, that film's titles and cards are left out of the primary results in the same
-  way.
+- Requirement G-PICTURES-6 also describes one film's count slip (film 03-camellia of the 10 November round) without
+  naming it. That film's titles and cards are left out of the primary results in the same way.
 
 ## 5. Planted flaws
 
@@ -139,7 +137,7 @@ unsure.
 
 ## 6. Procedure
 
-1. **Dry run and pilot (11 November, morning):** two films of the fifth case, outside the study. This checks the price
+1. **Dry run and pilot (11 November, morning):** two films outside the study (section 4). This checks the price
    of a look, both frame placements and the runner's logs.
 2. **Labels (10–11 November):** every kind is labelled and committed before the critic looks at a study film.
 3. **Flaws, one kind at a time (zoom, then title, then picture):** plant the flaws, render them, then run the

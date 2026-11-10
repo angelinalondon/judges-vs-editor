@@ -1,9 +1,9 @@
 # Does an AI critic flag what an editor flags?
 
 A small study of the AI critic in Tev, an AI video editor for short talking-head films. The critic decides whether a
-film is good enough to release. Here it is compared with one video editor's own judgments, one editing decision at a
-time (zooms, titles, pictures shown with the talk). It is also tested on flaws planted on purpose in copies of edited
-films, and with its frames placed two ways: at even steps, and at the moments decisions start.
+film is good enough to release. Here two of Tev's critics, one that reads the editor's written requirements and one told
+only the person's words and shown only the film, are compared with one video editor's own judgments of single editing
+decisions (zooms and titles) in 27 films.
 
 **Status, 10 November 2026:** the protocol is being written. This repository stays private until the protocol is
 frozen, before the critic looks at any study film.

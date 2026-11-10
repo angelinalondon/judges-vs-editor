@@ -5,8 +5,7 @@ looks at a study film (planned for 11 November 2026). Nothing in sections 1–11
 logged in section 12 with its date and reason.
 
 **To settle before freezing (Angelina):**
-1. The picture sample: 100 (section 4).
-2. The predictions (section 8).
+1. The predictions (section 8).
 
 Filled in by code at freezing (marked FILL): the commits and the seeds.
 
@@ -54,7 +53,7 @@ results either way, so results speak for this setup only, not for Tev's release 
 
 **Two placements of the 24 frames:**
 - **A, as today:** at even steps through the film.
-- **B, at decisions:** one frame at the start of each zoom, title and picture, in time order. If a film has more than 24
+- **B, at decisions:** one frame at the start of each zoom and title, in time order. If a film has more than 24
   such starts, every k-th start is used. If it has fewer, the rest go at even steps. Nothing else differs from A.
 
 **Runner changes, committed before freezing:**
@@ -82,7 +81,7 @@ outside the study, from Angelina's own later cases (Unboxing_Peggy_Clutch or Ste
 |---|---|---|
 | Zoom | 46 | all |
 | Title or count card | 71 | all |
-| Picture or screen recording shown with the talk | 548 | a random sample of 100, at most 5 per film (seed 20261110, fixed in `make_label_list.py`) |
+| Picture or screen recording shown with the talk | 548 | not in this round: whether a picture's place matters depends on the moment, so one good or bad label per picture misses it (Angelina, 10 November). Left for later |
 
 **Labels:** each label is one of:
 - **bad:** "I would change this decision in my own edit", even a little;
@@ -94,7 +93,7 @@ Each label has a few words on why. The label list is `labels.csv`, built by Tev'
 **Blind:** Angelina sees none of the critic's answers on study films until every label is committed. The commit and
 the labels' sha256 are recorded in section 12.
 
-**Reliability:** 30 decisions, 10 per kind, drawn by seed, are re-labelled by Angelina without her first labels, at
+**Reliability:** 30 decisions, 15 per kind, drawn by seed, are re-labelled by Angelina without her first labels, at
 least three days after the first. Her agreement with herself is reported as the human ceiling beside the critic.
 
 **Contamination:** the critic's requirement G-ZOOMS-1, in the text it sees, names six of the 27 films and gives
@@ -117,17 +116,16 @@ recipe breaks a requirement line the critic reads, so it is told what to look fo
 |---|---|---|---|
 | **Zoom** | **Z1, off its word:** the zoom starts exactly 1.5 s later, same length, while its picture is still on screen. If that does not fit, 1.5 s earlier; otherwise not eligible | **Z2, aimed away:** the aim's height y becomes 1 − y. Eligible when y is at least 0.2 from the middle | G-ZOOMS-1, TH-AVOID-10 |
 | **Title or card** | **T1, over the face:** the text's centre moves onto the face Apple's Vision finds in the null copy's frame at the text's start. Eligible when exactly one face is found | **T2, one word per line:** a line break after every word. Eligible for texts of three or more words; for a count card, the words after the count | T1: G-WORDS-4, TH-AVOID-9. T2: G-WORDS-3 |
-| **Picture** | **P1, swapped:** two pictures of one film, both labelled good, at least 3 s apart and of different files, exchange files and keep their times. A flag on either counts | **P2, late:** the picture starts 1.5 s later and the one before it holds 1.5 s longer. Eligible when the picture lasts 3 s or more | P1: G-PICTURES-2, TH-LAYOUT-4. P2: G-PICTURES-1, TH-LAYOUT-4 |
 
 **Draw:**
 - Each recipe has its own pool of eligible decisions.
-- About 5 flaws per recipe, so about 10 per kind and 30 in all.
+- About 5 flaws per recipe, so about 10 per kind and 20 in all. Only decisions labelled good can carry a flaw: 14 zooms and 11 titles, so the eligible pools may give fewer.
 - At most two flaws per film, per kind.
 - Every seed is derived from the frozen commit's hash.
 - A short pool means fewer flaws, never a looser rule.
 
 **Manipulation check (does each planted flaw really look wrong to Angelina?):** before the critic sees any flaw,
-Angelina labels the planted decisions themselves, exactly as in section 4: the zoom, title or picture, good, bad or
+Angelina labels the planted decisions themselves, exactly as in section 4: the zoom or title, good, bad or
 unsure.
 - Each one is shown as a 4-second excerpt of its film around that decision, so she judges the decision, not the clip.
 - To keep the check blind, the flawed decisions are mixed one to one with the same decisions in their null copies,
@@ -140,7 +138,7 @@ unsure.
 1. **Dry run and pilot (11 November, morning):** two films outside the study (section 4). This checks the price
    of a look, both frame placements and the runner's logs.
 2. **Labels (10–11 November):** every kind is labelled and committed before the critic looks at a study film.
-3. **Flaws, one kind at a time (zoom, then title, then picture):** plant the flaws, render them, then run the
+3. **Flaws, one kind at a time (zoom, then title):** plant the flaws, render them, then run the
    manipulation check.
 4. **Critic A:**
    - one look at each null copy and each flawed copy;
@@ -155,8 +153,7 @@ unsure.
 - **A change flags a decision** when both are true:
   - its seconds overlap the decision's time, widened by 0.5 s on each side; for a flawed decision, that is its time in
     the flawed copy;
-  - its words name the decision's kind: "zoom" for a zoom; "title", "text", "card" or "heading" for a title or card;
-    "picture", "photo", "image", "shot", "screenshot" or "recording" for a picture.
+  - its words name the decision's kind: "zoom" for a zoom; "title", "text", "card" or "heading" for a title or card.
 - **One decision per change:** each change goes to at most one decision, the overlapping decision of that kind nearest
   in time.
 - **Requirement verdicts:** a failed verdict flags a decision only when what it saw names a time inside that window.
@@ -193,9 +190,8 @@ TO WRITE. One line each, with a number, for example: "the critic flags fewer tha
 1. Q1, Agreement:
 2. Q2, Caught, zoom:
 3. Q2, Caught, title:
-4. Q2, Caught, picture:
-5. Q3, Fixed: what frames at decisions do to Caught:
-6. Seen: the share of zoom flaws that fall between critic A's frames:
+4. Q3, Fixed: what frames at decisions do to Caught:
+5. Seen: the share of zoom flaws that fall between critic A's frames:
 
 ## 9. Reporting
 
@@ -211,11 +207,11 @@ TO WRITE. One line each, with a number, for example: "the critic flags fewer tha
   Tev's budget window `JUDGE` keeps the count, and the runner refuses a call the window cannot pay for.
 - **Looks:**
   - pilot: about 4;
-  - critic A: 27 null copies, 30 flawed copies and 10 repeats, so about 67;
-  - critic B: 27 null copies and 30 flawed copies, so about 57;
-  - in all, about 128.
-- **Price rule:** if the pilot shows a look costs $0.28 or less, everything runs. If it costs more, critic A runs in
-  full, and critic B spends what is left in this order: zoom, then title, then picture, each kind with its null copies.
+  - critic A: 27 null copies, 20 flawed copies and 10 repeats, so about 57;
+  - critic B: 27 null copies and 20 flawed copies, so about 47;
+  - in all, about 108.
+- **Price rule:** if the pilot shows a look costs $0.33 or less, everything runs. If it costs more, critic A runs in
+  full, and critic B spends what is left in this order: zoom, then title, each kind with its null copies.
 
 ## 11. What is public
 

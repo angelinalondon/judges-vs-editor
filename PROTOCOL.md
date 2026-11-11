@@ -110,7 +110,8 @@ looked at first, once by each critic, as a dry run and a pilot: the price of a l
 **Flagged:** decided in code, never by hand.
 - **A change flags a decision** when both are true:
   - its seconds overlap the decision's time, widened by 0.5 s on each side;
-  - its words name the decision's kind: "zoom" for a zoom; "title", "text", "card" or "heading" for a title or card.
+  - its words name the decision's kind: "zoom", "punch in" or "push in" for a zoom; "title", "text", "card" or "heading" for
+    a title or card. Words match in any case, and "punch-in" or "push-in" with a hyphen count too.
 - **One decision per change:** each change goes to at most one decision, the overlapping decision of that kind nearest
   in time.
 - **Requirement verdicts (critic A):** a failed verdict flags a decision only when what it saw names a time inside that
@@ -177,6 +178,7 @@ TO WRITE. One line each, with a number, for example: "critic A flags fewer than 
 | 10 Nov, 20:40 UTC | Labels complete: 46 zooms (14 good, 32 bad), 71 titles (11 good, 60 bad); workspace commit `47bd4a4`, `labels.csv` sha256 `befb7de3c8d7e3ea…` | The answer key, before any study look |
 | 10 Nov, about 20:35 UTC | Angelina saw both critics' film-level scores on six study films (no notes), after labelling them | Shown by the session building the critics; those six films are already left out of B's results |
 | 10 Nov, before freezing | Planted flaws dropped | Tev's export test is not on its main branch, and zooms added with ffmpeg also enlarge the titles, captions and speaker that a real Tev zoom leaves alone, so the flaw would not be Tev's. Kept for later, with an export test |
+| 11 Nov, before freezing | "punch in" and "push in" added to the words that name a zoom (section 7) | The pilot: critic B asked for a zoom once as "Zoom in" and once as "Punch in"; Angelina agreed |
 
 ## 12. Who did what
 

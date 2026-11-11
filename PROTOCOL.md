@@ -195,6 +195,7 @@ It is checked as two directions, with no threshold:
 | 11 Nov, before freezing | The runner refuses a look without the person's words, and takes any Anthropic key (`sk-ant-…`) | Stella_Boots_Lookbook has no `turn-request.json`, and the dry run sent it with no words; the study's key is not `sk-ant-api…`. Neither changes a study film's request. Angelina agreed |
 | 11 Nov, before freezing | Paid from Dmitry's Anthropic account, not Angelina's | Angelina's choice |
 | 11 Nov, before freezing | Seed 20261111 for the reliability draw and the bootstrap; `draw.py` writes `draws.json` | |
+| 11 Nov, after freezing, before any study look was read | The analysis code, `analyze.py` with its checks `test_analyze.py`, committed. It reads section 7 two ways the text leaves open: a change's words are its `change` and `why` together; a failed verdict must also name the decision's kind in what it saw, as a change must. It adds one sensitivity check beside the primary results: "label", or a quotation of a title's own words, also names a title | In the pilot, critic A called a title a "label" and quoted its words without "title"; the primary rule stays as frozen |
 
 ## 12. Who did what
 

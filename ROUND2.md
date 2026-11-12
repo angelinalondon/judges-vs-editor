@@ -74,4 +74,12 @@ window JUDGE, which counts round 1's calls. No model call is made from the Mac i
 
 ## 7. Changes after the freeze
 
-None yet.
+- **12 November, 04:15 UTC, before any of the other nine films, at Angelina's word ("do in one"):** the nine films after the first
+  are made in **one test session** (`CaseFilmUITests.testTheCasesFirstMessagesMakeFilms`, iOS `1e5a40c5`, through the workspace's
+  `scorer-audit/round2/session.sh`), each with exactly the steps of the single-film test, in the order of section 3. **Why:** the
+  phone asks its owner to approve UI automation (Face ID or the passcode) once per test session. The first film was made in a
+  session of its own on 11 November (22:35–22:54 UTC); every later film, each in its own session, stopped after about a minute
+  with "Timed out while enabling automation mode" while she slept (22:55–23:19 UTC, two tries each). No film started in them and
+  nothing was paid. One session asks once. The test build is the one the first film used plus the session test (built before
+  Dmitry's case-film change `53750f3f`, whose settings these films do not use). The nine are made on 12 November (runs
+  `2026-11-12-r2-<version>`); a film that fails is made once more in a second session (`…-again`).

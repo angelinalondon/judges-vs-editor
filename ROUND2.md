@@ -83,3 +83,22 @@ window JUDGE, which counts round 1's calls. No model call is made from the Mac i
   nothing was paid. One session asks once. The test build is the one the first film used plus the session test (built before
   Dmitry's case-film change `53750f3f`, whose settings these films do not use). The nine are made on 12 November (runs
   `2026-11-12-r2-<version>`); a film that fails is made once more in a second session (`…-again`).
+- **12 November, what became of that session (04:15–06:59 UTC):** all nine films were made and exported, and all nine videos were
+  lost: Tev empties its export folder each time it opens, so each film's launch deleted the film before it, and the script opened Tev
+  again before taking the last one ($22.41). Their records (every model answer, critic scores and notes) are kept. Then, at
+  Angelina's word, film by film:
+  - Olsens_Oversized on 2.3.10 and Madame_T on 2.3.10 made again on her phone (runs `…-again`, 11:07 and 11:34 UTC), each copied
+    off the phone before Tev opened again.
+  - Trousers_Five_Looks, both films, **rebuilt on the Mac from their own records** (runs `…-rebuilt`): their recorded answers
+    replayed by Tev's own replay tool (tev-apply) on the case's media as Tev seeds it, with the phone's own numbering of the clips,
+    and exported by Tev's own exporter on a simulator. The rebuilt first cut matches the phone's own description of it shot for shot
+    and title for title. What differs: the iPhone's HDR clips were converted to standard range on the Mac before the edit, and the
+    export ran on a simulator. Both films of the pair are made the same way.
+  - Madame_T on the new version: made twice on her phone (14:25 and 14:53 UTC, $2.94 and $2.49) and exported neither time, an
+    email's banner over the Chat/Editor switch taking the test's tap. The second time its project was saved before the export
+    (run `…-again`: the whole edit and the speaker's cut-out); it is to be exported from that saved project, with no model call.
+- **12 November, ~15:35 UTC, at Angelina's word ("Yes, on the simulator"):** Stella_Boots_Lookbook's two films are made on an
+  iOS 27.0 simulator on this Mac, not on her phone: the same test (CaseFilmUITests, iOS `a551616b`), Worker and versions, one session
+  per film, the new version first (runs `2026-11-12-r2-<version>-sim`). What differs from a phone: the simulator has no body pose, so
+  the films' crops "focused on the feet" aim at the middle of the frame (this case's simulator film of 10 November did so), and a
+  session token for the same account stands in for App Attest. Both films of the pair are made the same way.

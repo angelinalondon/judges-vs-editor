@@ -1,7 +1,8 @@
 # Round 3: do the critics flag what Angelina flags in other creators' own edits? A first look
 
 **Status: frozen on 13 November 2026** with the tagged commit `round3-frozen`, before any critic looked at a round-3 video.
-Nothing in sections 1–8 changes after that. Any later change is logged in section 9 with its date and reason.
+Nothing in sections 1–8 changes after that. Any later change is logged in section 9 with its date and reason. **Results, 13 November
+2026:** section 10.
 
 ## 1. The question, and how it connects to rounds 1 and 2
 
@@ -117,3 +118,40 @@ None: Angelina wrote no prediction before the freeze.
     states §6's per-video measure in words: a change or a failed verdict names her problem when it names a title (round 1's words,
     extended) and uses the words of the problem she gave for that video's titles: legibility (shadow, outline, contrast, legible,
     readable, hard to read or see, visible, scrim), numbering, a white box over the pictures, or the font and its spacing.
+
+## 10. Results
+
+All 28 looks ran on 13 November (16:55–17:15 UTC), none failed, and they cost $9.15 of window `JUDGE3`. The numbers are
+`analyze3.py`'s (§9); videos are named by their ids (`results/round3-labels.csv`).
+
+**The six friends' videos: her 20 titles, all bad** (no zoom, and no title she would keep).
+
+| | Critic A (reads her requirements) | Critic B (viewer only) |
+|---|---|---|
+| **Q1:** her bad titles flagged, first look | **11 of 20, 0.55** (bootstrap 0.50–0.63; exact 0.32–0.77) | **6 of 20, 0.30** (bootstrap 0.14–0.47; exact 0.12–0.54) |
+| ties counted as flagged | 11 of 20 | 6 of 20 |
+| extended words | 12 of 20 | 7 of 20 |
+| only the 8 titles she labelled herself | 7 of 8 | 2 of 8 |
+| **Q3:** the same flag in both looks | 13 of 20, 0.65 (bootstrap 0.50–0.74) | 14 of 20, 0.70 (bootstrap 0.58–0.79) |
+
+- **Q2, B minus A:** −0.25 on the same 20 titles (A 11, B 6; bootstrap −0.44 to −0.05); on the 8 she labelled herself, −0.63
+  (bootstrap −1.0 to −0.42). Critic A caught more of her bad titles, as in round 1 (−0.14 there: A 74%, B 51% of her bad
+  decisions); both critics caught fewer here.
+- **Per video, by §9's words:** critic A named the problem she gave for a video's titles in one video of five (r3-4, the white box
+  over the pictures), in both looks; critic B in none. Read by eye, outside the frozen measure: critic A's failed verdict that the
+  titles stay white over light pictures (r3-5 and r3-6) is her soft-shadow problem in other words; critic B never states it.
+- **What the critics flagged titles for**, read by eye: a title appearing a beat before or after its picture's cut, a title broken
+  over several lines, a title's words against the first message, and a title over a face or the app's buttons. They agree with her
+  more on which titles to change than on why.
+- **Flags that come from the first messages written for the study:** in two videos (r3-4 and r3-5), both critics asked to reword
+  titles to the words of the first message, which here was written for the study (one by Angelina, one Claude's draft that she
+  approved), not by the creator. They count for both critics, so they raise both shares and barely change B minus A.
+
+**Her own lookbook (r3-3), apart:** both critics would release it (critic A 0.88 and 0.89, critic B 0.88 and 0.88); neither
+flagged any of its 7 titles, which she called good, in either look; neither named the camera's movement.
+
+**Reading, a first look:** on videos other creators edited, from footage her requirements were not written from, the critic that
+reads her requirements still flags more of the titles she would change than the critic that only watches. Its lead holds, in
+titles, as in round 1. The limits are §8's: 20 titles from five creators, 12 of their labels copied across a style, every title
+bad, and first messages written for the study.
+

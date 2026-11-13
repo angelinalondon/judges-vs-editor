@@ -111,4 +111,9 @@ None: Angelina wrote no prediction before the freeze.
 - **Budget:** window `JUDGE3`, $15 (backend `evals/compare/budgets.json`, `393c4e8`; Angelina: "Go for it"). No films are made.
   The 28 looks cost about $12 at round 1's price ($35.10 for 80 looks); the dry run's estimate was $5.90.
 - **Timeline:** the marks, labels, first messages and freeze on 13 November; looks and analysis next; results by 16–17 November.
-- **Changes after the freeze:** none yet.
+- **Changes after the freeze:**
+  - 13 November, while the looks ran and before any was read: the analysis code, `analyze3.py` (private, in the workspace's
+    `scorer-audit/round3/`, sha256 `23d10049946f08c8…`), which imports round 1's `analyze.py` for §6's rules and sets the seed to 20261113. It
+    states §6's per-video measure in words: a change or a failed verdict names her problem when it names a title (round 1's words,
+    extended) and uses the words of the problem she gave for that video's titles: legibility (shadow, outline, contrast, legible,
+    readable, hard to read or see, visible, scrim), numbering, a white box over the pictures, or the font and its spacing.

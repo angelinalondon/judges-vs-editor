@@ -118,6 +118,14 @@ None: Angelina wrote no prediction before the freeze.
     states §6's per-video measure in words: a change or a failed verdict names her problem when it names a title (round 1's words,
     extended) and uses the words of the problem she gave for that video's titles: legibility (shadow, outline, contrast, legible,
     readable, hard to read or see, visible, scrim), numbering, a white box over the pictures, or the font and its spacing.
+  - 13 November, after the results were read, at Angelina's word: in all four of its looks at creator B's two videos (r3-2 and
+    r3-5), critic A asked to undo the line break of their opening title, citing requirement G-WORDS-3 ("two lines, never three").
+    Angelina: the break was deliberate emphasis (a small linking word between two bigger lines), which she would keep; she judges
+    the second-line words of two of that creator's other titles deliberate too (critic A did not ask to change those). Her labels
+    stay as frozen (that title is bad for its missing shadow, not for its break). Of critic A's 11 first-look flags, one, r3-2's
+    opening title, rests on G-WORDS-3 alone: without it critic A flags 10 of 20, and B minus A is −0.20 (exploratory, after the
+    results). The rule was rewritten for Tev, not for this study (requirements-v3, backend `1e494be`, her environment's default
+    2.3.10-b); the study's critic A keeps requirements-v2.
 
 ## 10. Results
 

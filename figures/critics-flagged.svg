@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372" width="760" height="372" role="img" aria-labelledby="t d" font-family="-apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title id="t">How many of Angelina's "bad" editing decisions each critic flagged</title>
+<desc id="d">Round 1, Tev's films: critic A flagged 74% (50 of 68, 95% interval 61–84%), critic B 51% (41 of 81, 39–62%). Round 3, other creators' videos: critic A 55% (11 of 20, 32–77%), critic B 30% (6 of 20, 12–54%).</desc>
+<style>
+  svg { --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --grid: #dedcd6; --a: #2a78d6; --b: #eb6834; }
+  @media (prefers-color-scheme: dark) { svg { --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --grid: #3b3a37; --a: #3987e5; --b: #d95926; } }
+  .bg { fill: var(--surface); } .t1 { fill: var(--ink); } .t2 { fill: var(--ink-2); } .grid { stroke: var(--grid); stroke-width: 1; }
+  .A { stroke: var(--a); fill: var(--a); } .B { stroke: var(--b); fill: var(--b); } .ring { stroke: var(--surface); stroke-width: 2; }
+</style>
+<rect class="bg" x="0" y="0" width="760" height="372" rx="8"/>
+<text class="t1" x="24" y="34" font-size="18" font-weight="600">How many of Angelina's "bad" editing decisions each critic flagged</text>
+<text class="t2" x="24" y="56" font-size="13">First look at each film. Dot: the share flagged. Line: its exact 95% interval.</text>
+<circle class="A" cx="30" cy="80" r="5"/><text class="t1" x="42" y="84" font-size="13">Critic A · reads her written requirements</text>
+<circle class="B" cx="330" cy="80" r="5"/><text class="t1" x="342" y="84" font-size="13">Critic B · told only the person's words, shown only the film</text>
+<line class="grid" x1="268.0" y1="136" x2="268.0" y2="186"/>
+<line class="grid" x1="368.0" y1="136" x2="368.0" y2="186"/>
+<line class="grid" x1="468.0" y1="136" x2="468.0" y2="186"/>
+<line class="grid" x1="568.0" y1="136" x2="568.0" y2="186"/>
+<line class="grid" x1="668.0" y1="136" x2="668.0" y2="186"/>
+<line class="grid" x1="268.0" y1="232" x2="268.0" y2="282"/>
+<line class="grid" x1="368.0" y1="232" x2="368.0" y2="282"/>
+<line class="grid" x1="468.0" y1="232" x2="468.0" y2="282"/>
+<line class="grid" x1="568.0" y1="232" x2="568.0" y2="282"/>
+<line class="grid" x1="668.0" y1="232" x2="668.0" y2="282"/>
+<text class="t2" x="268.0" y="308" font-size="12" text-anchor="middle">0%</text>
+<text class="t2" x="368.0" y="308" font-size="12" text-anchor="middle">25%</text>
+<text class="t2" x="468.0" y="308" font-size="12" text-anchor="middle">50%</text>
+<text class="t2" x="568.0" y="308" font-size="12" text-anchor="middle">75%</text>
+<text class="t2" x="668.0" y="308" font-size="12" text-anchor="middle">100%</text>
+<text class="t1" x="24" y="124" font-size="13" font-weight="600">Round 1 · Tev's films (27 films, zooms and titles)</text>
+<text class="t2" x="40" y="152" font-size="13">Critic A</text>
+<line class="A" x1="513.6" y1="148" x2="602.0" y2="148" stroke-width="2" stroke-linecap="round"/>
+<circle class="A ring" cx="562.0" cy="148" r="5.5" style="fill: var(--a)"/>
+<text class="t1" x="612.0" y="152" font-size="12.5">74% · 50 of 68</text>
+<text class="t2" x="40" y="178" font-size="13">Critic B</text>
+<line class="B" x1="425.2" y1="174" x2="515.6" y2="174" stroke-width="2" stroke-linecap="round"/>
+<circle class="B ring" cx="470.4" cy="174" r="5.5" style="fill: var(--b)"/>
+<text class="t1" x="525.6" y="178" font-size="12.5">51% · 41 of 81</text>
+<text class="t1" x="24" y="222" font-size="13" font-weight="600">Round 3 · other creators' videos (20 titles)</text>
+<text class="t2" x="40" y="250" font-size="13">Critic A</text>
+<line class="A" x1="394.0" y1="246" x2="575.6" y2="246" stroke-width="2" stroke-linecap="round"/>
+<circle class="A ring" cx="488.0" cy="246" r="5.5" style="fill: var(--a)"/>
+<text class="t1" x="585.6" y="250" font-size="12.5">55% · 11 of 20</text>
+<text class="t2" x="40" y="276" font-size="13">Critic B</text>
+<line class="B" x1="315.6" y1="272" x2="485.2" y2="272" stroke-width="2" stroke-linecap="round"/>
+<circle class="B ring" cx="388.0" cy="272" r="5.5" style="fill: var(--b)"/>
+<text class="t1" x="495.2" y="276" font-size="12.5">30% · 6 of 20</text>
+<text class="t2" x="468" y="328" font-size="12" text-anchor="middle">Share of her "bad" decisions the critic flagged</text>
+<text class="t2" x="24" y="356" font-size="12">Round 2 asked a different question (her blind choice between films): 1 of 4 pairs went to the version revised on critic A's notes.</text>
+</svg>

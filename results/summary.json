@@ -1,0 +1,613 @@
+{
+ "looks": {
+  "A": {
+   "first": 27,
+   "second": 13,
+   "failed": []
+  },
+  "B": {
+   "first": 27,
+   "second": 13,
+   "failed": []
+  }
+ },
+ "costUSD": 35.1,
+ "Q1_agreement": {
+  "A": {
+   "bad": {
+    "k": 50,
+    "n": 68,
+    "share": 0.735,
+    "cp": [
+     0.614,
+     0.835
+    ],
+    "boot": [
+     0.652,
+     0.837
+    ]
+   },
+   "bad_ties_flagged": {
+    "k": 50,
+    "n": 68,
+    "share": 0.735,
+    "cp": [
+     0.614,
+     0.835
+    ],
+    "boot": [
+     0.652,
+     0.837
+    ]
+   },
+   "bad_extended_words": {
+    "k": 51,
+    "n": 68,
+    "share": 0.75,
+    "cp": [
+     0.63,
+     0.847
+    ],
+    "boot": [
+     0.662,
+     0.86
+    ]
+   },
+   "bad_zoom": {
+    "k": 5,
+    "n": 11,
+    "share": 0.455,
+    "cp": [
+     0.167,
+     0.766
+    ],
+    "boot": [
+     0.182,
+     0.778
+    ]
+   },
+   "bad_zoom_extended_words": {
+    "k": 5,
+    "n": 11,
+    "share": 0.455,
+    "cp": [
+     0.167,
+     0.766
+    ],
+    "boot": [
+     0.182,
+     0.778
+    ]
+   },
+   "bad_title": {
+    "k": 45,
+    "n": 57,
+    "share": 0.789,
+    "cp": [
+     0.661,
+     0.886
+    ],
+    "boot": [
+     0.714,
+     0.878
+    ]
+   },
+   "bad_title_extended_words": {
+    "k": 46,
+    "n": 57,
+    "share": 0.807,
+    "cp": [
+     0.681,
+     0.9
+    ],
+    "boot": [
+     0.723,
+     0.902
+    ]
+   },
+   "good": {
+    "k": 5,
+    "n": 17,
+    "share": 0.294,
+    "cp": [
+     0.103,
+     0.56
+    ],
+    "boot": [
+     0.071,
+     0.45
+    ]
+   },
+   "good_ties_flagged": {
+    "k": 5,
+    "n": 17,
+    "share": 0.294,
+    "cp": [
+     0.103,
+     0.56
+    ],
+    "boot": [
+     0.071,
+     0.45
+    ]
+   },
+   "good_extended_words": {
+    "k": 5,
+    "n": 17,
+    "share": 0.294,
+    "cp": [
+     0.103,
+     0.56
+    ],
+    "boot": [
+     0.071,
+     0.45
+    ]
+   },
+   "good_zoom": {
+    "k": 2,
+    "n": 7,
+    "share": 0.286,
+    "cp": [
+     0.037,
+     0.71
+    ],
+    "boot": [
+     0.0,
+     0.5
+    ]
+   },
+   "good_zoom_extended_words": {
+    "k": 2,
+    "n": 7,
+    "share": 0.286,
+    "cp": [
+     0.037,
+     0.71
+    ],
+    "boot": [
+     0.0,
+     0.5
+    ]
+   },
+   "good_title": {
+    "k": 3,
+    "n": 10,
+    "share": 0.3,
+    "cp": [
+     0.067,
+     0.652
+    ],
+    "boot": [
+     0.0,
+     0.5
+    ]
+   },
+   "good_title_extended_words": {
+    "k": 3,
+    "n": 10,
+    "share": 0.3,
+    "cp": [
+     0.067,
+     0.652
+    ],
+    "boot": [
+     0.0,
+     0.5
+    ]
+   }
+  },
+  "B": {
+   "bad": {
+    "k": 41,
+    "n": 81,
+    "share": 0.506,
+    "cp": [
+     0.393,
+     0.619
+    ],
+    "boot": [
+     0.38,
+     0.629
+    ]
+   },
+   "bad_ties_flagged": {
+    "k": 41,
+    "n": 81,
+    "share": 0.506,
+    "cp": [
+     0.393,
+     0.619
+    ],
+    "boot": [
+     0.38,
+     0.629
+    ]
+   },
+   "bad_extended_words": {
+    "k": 42,
+    "n": 81,
+    "share": 0.519,
+    "cp": [
+     0.405,
+     0.631
+    ],
+    "boot": [
+     0.388,
+     0.651
+    ]
+   },
+   "bad_zoom": {
+    "k": 11,
+    "n": 29,
+    "share": 0.379,
+    "cp": [
+     0.207,
+     0.577
+    ],
+    "boot": [
+     0.175,
+     0.696
+    ]
+   },
+   "bad_zoom_extended_words": {
+    "k": 11,
+    "n": 29,
+    "share": 0.379,
+    "cp": [
+     0.207,
+     0.577
+    ],
+    "boot": [
+     0.175,
+     0.696
+    ]
+   },
+   "bad_title": {
+    "k": 30,
+    "n": 52,
+    "share": 0.577,
+    "cp": [
+     0.432,
+     0.713
+    ],
+    "boot": [
+     0.464,
+     0.702
+    ]
+   },
+   "bad_title_extended_words": {
+    "k": 31,
+    "n": 52,
+    "share": 0.596,
+    "cp": [
+     0.451,
+     0.73
+    ],
+    "boot": [
+     0.479,
+     0.723
+    ]
+   },
+   "good": {
+    "k": 6,
+    "n": 19,
+    "share": 0.316,
+    "cp": [
+     0.126,
+     0.566
+    ],
+    "boot": [
+     0.143,
+     0.55
+    ]
+   },
+   "good_ties_flagged": {
+    "k": 6,
+    "n": 19,
+    "share": 0.316,
+    "cp": [
+     0.126,
+     0.566
+    ],
+    "boot": [
+     0.143,
+     0.55
+    ]
+   },
+   "good_extended_words": {
+    "k": 6,
+    "n": 19,
+    "share": 0.316,
+    "cp": [
+     0.126,
+     0.566
+    ],
+    "boot": [
+     0.143,
+     0.55
+    ]
+   },
+   "good_zoom": {
+    "k": 4,
+    "n": 12,
+    "share": 0.333,
+    "cp": [
+     0.099,
+     0.651
+    ],
+    "boot": [
+     0.091,
+     0.636
+    ]
+   },
+   "good_zoom_extended_words": {
+    "k": 4,
+    "n": 12,
+    "share": 0.333,
+    "cp": [
+     0.099,
+     0.651
+    ],
+    "boot": [
+     0.091,
+     0.636
+    ]
+   },
+   "good_title": {
+    "k": 2,
+    "n": 7,
+    "share": 0.286,
+    "cp": [
+     0.037,
+     0.71
+    ],
+    "boot": [
+     0.0,
+     0.333
+    ]
+   },
+   "good_title_extended_words": {
+    "k": 2,
+    "n": 7,
+    "share": 0.286,
+    "cp": [
+     0.037,
+     0.71
+    ],
+    "boot": [
+     0.0,
+     0.333
+    ]
+   }
+  }
+ },
+ "Q2_compared": {
+  "bad": {
+   "of": "B minus A",
+   "A": 42,
+   "B": 34,
+   "n": 57,
+   "diff": -0.14,
+   "boot": [
+    -0.26,
+    -0.032
+   ]
+  },
+  "bad_ties_flagged": {
+   "of": "B minus A",
+   "A": 42,
+   "B": 34,
+   "n": 57,
+   "diff": -0.14,
+   "boot": [
+    -0.26,
+    -0.032
+   ]
+  },
+  "bad_extended_words": {
+   "of": "B minus A",
+   "A": 43,
+   "B": 35,
+   "n": 57,
+   "diff": -0.14,
+   "boot": [
+    -0.267,
+    -0.018
+   ]
+  },
+  "good": {
+   "of": "B minus A",
+   "A": 2,
+   "B": 4,
+   "n": 11,
+   "diff": 0.182,
+   "boot": [
+    0.0,
+    0.364
+   ]
+  },
+  "bad_zoom": {
+   "of": "B minus A",
+   "A": 3,
+   "B": 5,
+   "n": 8,
+   "diff": 0.25,
+   "boot": [
+    0.0,
+    0.6
+   ]
+  },
+  "bad_title": {
+   "of": "B minus A",
+   "A": 39,
+   "B": 29,
+   "n": 49,
+   "diff": -0.204,
+   "boot": [
+    -0.309,
+    -0.1
+   ]
+  }
+ },
+ "Q3_stable": {
+  "A": {
+   "k": 42,
+   "n": 47,
+   "share": 0.894,
+   "cp": [
+    0.769,
+    0.965
+   ],
+   "boot": [
+    0.852,
+    0.952
+   ],
+   "flagged_first": 32,
+   "flagged_second": 31
+  },
+  "B": {
+   "k": 34,
+   "n": 47,
+   "share": 0.723,
+   "cp": [
+    0.574,
+    0.844
+   ],
+   "boot": [
+    0.521,
+    0.878
+   ],
+   "flagged_first": 28,
+   "flagged_second": 25
+  }
+ },
+ "prediction": {
+  "misses_B_minus_A_on_bad": {
+   "of": "B minus A",
+   "A": 42,
+   "B": 34,
+   "n": 57,
+   "diff": -0.14,
+   "boot": [
+    -0.26,
+    -0.032
+   ]
+  },
+  "good_zooms_A_minus_B": {
+   "of": "A minus B",
+   "B": 2,
+   "A": 1,
+   "n": 5,
+   "diff": -0.2,
+   "boot": [
+    -0.5,
+    0.0
+   ]
+  }
+ },
+ "exploratory": {
+  "seen": {
+   "A": {
+    "seen": {
+     "k": 49,
+     "n": 66,
+     "share": 0.742,
+     "cp": [
+      0.62,
+      0.842
+     ],
+     "boot": [
+      0.659,
+      0.843
+     ]
+    },
+    "unseen": {
+     "k": 1,
+     "n": 2,
+     "share": 0.5,
+     "cp": [
+      0.013,
+      0.987
+     ],
+     "boot": [
+      0.5,
+      0.5
+     ]
+    }
+   },
+   "B": {
+    "seen": {
+     "k": 41,
+     "n": 78,
+     "share": 0.526,
+     "cp": [
+      0.409,
+      0.64
+     ],
+     "boot": [
+      0.403,
+      0.643
+     ]
+    },
+    "unseen": {
+     "k": 0,
+     "n": 3,
+     "share": 0.0,
+     "cp": [
+      0.0,
+      0.708
+     ],
+     "boot": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "chance": {
+   "A": {
+    "bad": 0.533,
+    "good": 0.417
+   },
+   "B": {
+    "bad": 0.267,
+    "good": 0.2
+   }
+  },
+  "changes_per_look": {
+   "A": {
+    "looks": 27,
+    "mean_changes": 5.33,
+    "mean_naming_zoom_or_title": 3.15
+   },
+   "B": {
+    "looks": 27,
+    "mean_changes": 4.59,
+    "mean_naming_zoom_or_title": 3.33
+   }
+  },
+  "film_scores": {
+   "A": {
+    "films": 19,
+    "spearman": 0.817,
+    "p": 0.0,
+    "released": 0,
+    "mean_rating_released": null,
+    "mean_rating_held": 2.17,
+    "stable_films_mean_abs_score_change": 0.028,
+    "stable_films_release_changed": 0
+   },
+   "B": {
+    "films": 20,
+    "spearman": 0.847,
+    "p": 0.0,
+    "released": 0,
+    "mean_rating_released": null,
+    "mean_rating_held": 2.33,
+    "stable_films_mean_abs_score_change": 0.032,
+    "stable_films_release_changed": 0
+   }
+  }
+ }
+}

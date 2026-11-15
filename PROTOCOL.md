@@ -168,8 +168,7 @@ It is checked as two directions, with no threshold:
 ## 10. Budget and what is public
 
 - **Budget:** $40 for every model call of the study, from 9 to 17 November, counted by Tev's budget window `JUDGE`; the
-  runner refuses a call the window cannot pay for. The calls are paid from Dmitry's Anthropic account, with a key made for
-  the study.
+  runner refuses a call the window cannot pay for.
 - **Prices:** the pilot measured a look at $0.57 for critic A and $0.30 for B. The dry run had estimated $0.23 and $0.21;
   most of a look's price is the critic's own output, about 22,000 tokens for A and 10,000 for B. The 108 looks first
   planned would have cost about $47, so second looks are made only at the 13 films of Stable. The pilot cost $1.74, the 80
@@ -193,9 +192,9 @@ It is checked as two directions, with no threshold:
 | 11 Nov, before freezing | Pilot: four looks answered, $1.74; a look costs $0.57 for critic A and $0.30 for B | Section 5 |
 | 11 Nov, before freezing | Second looks only at the 13 films whose decisions count for both critics: 80 looks, not 108 | The pilot's prices. Angelina chose Stable on about 12 films over a second version of critic B shown frames at the decisions; 13 is every film that counts for both critics, so no film is drawn |
 | 11 Nov, before freezing | The runner refuses a look without the person's words, and takes any Anthropic key (`sk-ant-…`) | Stella_Boots_Lookbook has no `turn-request.json`, and the dry run sent it with no words; the study's key is not `sk-ant-api…`. Neither changes a study film's request. Angelina agreed |
-| 11 Nov, before freezing | Paid from Dmitry's Anthropic account, not Angelina's | Angelina's choice |
 | 11 Nov, before freezing | Seed 20261111 for the reliability draw and the bootstrap; `draw.py` writes `draws.json` | |
 | 11 Nov, after freezing, before any study look was read | The analysis code, `analyze.py` with its checks `test_analyze.py`, committed. It reads section 7 two ways the text leaves open: a change's words are its `change` and `why` together; a failed verdict must also name the decision's kind in what it saw, as a change must. It adds one sensitivity check beside the primary results: "label", or a quotation of a title's own words, also names a title | In the pilot, critic A called a title a "label" and quoted its words without "title"; the primary rule stays as frozen |
+| 15 Nov, after the results | Editorial: who paid for the model calls taken out of section 10 and of this table | Angelina: not part of the study. Nothing about the method changes; the text as frozen is at the tag `protocol-frozen` |
 
 ## 12. Who did what
 

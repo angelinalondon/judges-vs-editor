@@ -34,7 +34,7 @@ included, does Angelina prefer the film to the one Tev makes today, with critic 
 ## 3. Films
 
 - **Five cases, Angelina's choice (11 November):** Olsens_Oversized, Madame_T and Autumn_Wardrobe (talking head), and
-  Trousers_Five_Looks and Stella_Boots_Lookbook (lookbook). Marlo_Tote and Opinion are left out at her word; Zegna is Dmitry's case.
+  Trousers_Five_Looks and Stella_Boots_Lookbook (lookbook). Marlo_Tote and Opinion are left out at her word.
 - **One film per case and version: 10 films,** all on her phone (the talking heads need its cut-out of the speaker, and the
   simulator has no body pose for a lookbook's zooms).
 - **Each film is made as in her rating rounds:** `CaseFilmUITests` with the case's real first message (`request.json`), the case's
@@ -70,7 +70,7 @@ included, does Angelina prefer the film to the one Tev makes today, with critic 
 
 ## 6. Budget
 
-About $25 for the 10 films, on her environment's keys (about $2.30 a film, by the 2.3.8 film of 10 November), outside the $40 of
+About $25 for the 10 films (about $2.30 a film, by the 2.3.8 film of 10 November), outside the $40 of
 window JUDGE, which counts round 1's calls. No model call is made from the Mac in round 2.
 
 ## 7. Changes after the freeze
@@ -82,7 +82,7 @@ window JUDGE, which counts round 1's calls. No model call is made from the Mac i
   session of its own on 11 November (22:35–22:54 UTC); every later film, each in its own session, stopped after about a minute
   with "Timed out while enabling automation mode" while she slept (22:55–23:19 UTC, two tries each). No film started in them and
   nothing was paid. One session asks once. The test build is the one the first film used plus the session test (built before
-  Dmitry's case-film change `53750f3f`, whose settings these films do not use). The nine are made on 12 November (runs
+  change `53750f3f` to the case-film test, whose settings these films do not use). The nine are made on 12 November (runs
   `2026-11-12-r2-<version>`); a film that fails is made once more in a second session (`…-again`).
 - **12 November, what became of that session (04:15–06:59 UTC):** all nine films were made and exported, and all nine videos were
   lost: Tev empties its export folder each time it opens, so each film's launch deleted the film before it, and the script opened Tev
@@ -121,6 +121,8 @@ window JUDGE, which counts round 1's calls. No model call is made from the Mac i
   is no transcription call in any film's turn): the app treated the test account as unpaid, so the captions came from Apple's
   on-device recognizer, for both versions alike. The caption faults Angelina saw (wrong words, phrases rewritten as they built)
   are in both versions' films.
+- **15 November, editorial, at Angelina's word:** who paid for the films, and mentions of people outside the study, taken out of
+  sections 3, 6, 7 and 8. Nothing about the method or the results changes; the text as frozen is at the tag `round2-frozen`.
 
 ## 8. Results
 
@@ -146,7 +148,7 @@ films; pair 3 (Autumn_Wardrobe) has none.
 - **Her choice and the critics' scores:** the film she preferred has the higher kept score in 3 of the 4 pairs (not in pair 1).
   Each critic scored only its own version's film, so this does not compare the two critics' scales.
 - **Time and cost:** the turns took A 799, 812, 600 and 1,185 s, and B 579, 908, 901 and 518 s. The films cost A $3.07, $2.49,
-  $2.47 and $2.91 ($10.94), and B $2.15, $2.64, $2.54 and $2.05 ($9.38), on her environment's keys; a case's footage descriptions
+  $2.47 and $2.91 ($10.94), and B $2.15, $2.64, $2.54 and $2.05 ($9.38); a case's footage descriptions
   are paid by whichever of its films was made first. Round 2 cost $40.66 in all: $20.32 for these eight films, $17.40 for the
   seven other films lost on the morning of 12 November, and $2.94 for a Madame_T new-version film that was never exported (§7).
 - **Her reasons**, in her words with spelling and grammar corrected (a Russian word translated); "Film 1" and "Film 2" are the

@@ -69,6 +69,12 @@ The films, the footage and the pictures (hers and those of the friends who lent 
 words to Tev, Tev's prompts and requirements, Tev's code, and the critics' raw answers. Round 1's films appear only under code
 names and its cases as letters A–D; rounds 2 and 3 name their cases by working title, and round 3's creators only as A–E.
 
+## Licence
+
+The code (`analyze.py`, `draw.py` and `test_analyze.py`) is under the [MIT License](LICENSE). Everything else here (the text,
+the chart and the data) is under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). To cite it: Angelina Mkrtchyan,
+*Does an AI critic flag what an editor flags?* (2026), https://github.com/angelinalondon/judges-vs-editor.
+
 ## How it was made
 
 Claude helped with the design, the code and the editing; the labels, the judgments and the first drafts are Angelina's. The
